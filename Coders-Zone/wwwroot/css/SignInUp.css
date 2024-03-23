@@ -1,0 +1,123 @@
+﻿body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-image {
+    background-image: url('/images/image-signup.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    border-radius: 35px;
+    margin-top:10%;
+}
+
+ @media(max-width:768px) {
+
+    .bg-image {
+        display: none;
+    }
+}
+
+
+
+.login-form {
+    text-align: center;
+    margin-top: 7%;
+    padding: 50px;
+    background-color: #fff;
+    /* border-radius: 5px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.mb-4 {
+    background-color: rgba(73, 187, 189, 0.6);
+    margin-left: 17%;
+    margin-right: 17%;
+    border-radius: 50px;
+    font-size: large;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 10px;
+    color: white;
+    display:inline-flex;
+    width:250px
+
+}
+
+.active-Login-word {
+    background-color: #49BBBD;
+    border-radius: 35px;
+    padding-left: 30%;
+    text-align: center;
+    padding-right: 25%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: 0px;
+    margin-right: 25px;
+    text-decoration: none;
+    color: white;
+    width: 20%;
+}
+
+.Register-word {
+    margin-top:6px;
+    text-decoration: none;
+    color: white;
+    width: 20%;
+}
+
+.Login-word {
+    margin-top: 6px;
+    text-decoration: none;
+    color: white;
+    width: 20%;
+}
+
+.active-Register-word {
+
+    background-color: #49BBBD;
+    border-radius: 35px;
+    padding-left: 30%;
+    text-align: center;
+    padding-right: 37%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: 0px;
+    margin-right: 25px;
+    text-decoration: none;
+    color: white;
+    width: 20%;
+}
+
+.description {
+    text-align: left;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.input-info .form-group {
+    text-align: left;
+}
+
+.form-control {
+    border-color: rgba(73, 187, 189, 0.6);
+    border-width: 2px;
+    border-radius: 35px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.btn-primary {
+    background-color: #49BBBD;
+    border: none;
+    border-radius: 35px;
+    padding:20px 40px;
+    font-size:larger;
+    font-weight:bold;
+    width:100%
+}
+
+btn-primary:hover {
+    background-color: rgba(73, 187, 189, 0.6);
+}
