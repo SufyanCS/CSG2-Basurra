@@ -1,49 +1,103 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Coders_Zone</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Coders_Zone.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - my_project</title>
+    
+    <!--<link rel="stylesheet" href="~/css/site.css"/>-->
+    <style>
+        body {
+            background-color: rgb(229, 235, 240);
+        }
+        header {
+            padding: 2% 4%;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            justify-content: space-between;
+        }
+        .navbar a {
+                font-size: 20px;
+                padding: 1.2rem 1.5rem;
+                color: black;
+                text-decoration: none;
+                font-family: var(--logo_font);
+        }
+        a:hover {
+            color:rgb(69, 153, 168);
+        }
+        .logo {
+            text-decoration: none;
+            color:rgb(69, 153, 168);
+            text-transform: capitalize;
+            font-weight: 700;
+            font-size: 1.8em;
+        }
+        footer {
+            padding: 10px;
+            background-color: rgb(54, 50, 54);
+            margin: -10px;
+            margin-top: 0px;
+        }
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+        #click {
+            width: 8%;
+            height: 30px;
+            margin-left: 0%;
+            margin-top: 10px;
+            background: #afafaf;
+            color:black;
+            font-size: 16px;
+            text-transform: capitalize;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: 0.3s linear;
+            outline: none;
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Coders_Zone</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <a href="#" class="logo"><em>Coders Zone</em></a>
+        <div class="navbar" style="display:inline-block;">
+            <a class="active"><em>Home</em></a>
+            <a class="active"><em>Courses</em></a>
+            <a class="active"><em>Quizzes</em></a>
+            <a class="active"><em>Admin</em></a>
+            <a class="active"><em>Log In</em></a>
+            <a class="active"><em>Sign Up</em></a>
+        </div>
     </header>
+    <Content>
+        <div>
+            <p><em><marquee><h3>Welcome to coders zone web application where you are learn programming professionally and esaily</h3></marquee></em></p>
+        </div>
+    </Content>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Coders_Zone - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div class="footer">
+            <h1><em>Coders Zone</em></h1>
+                <h3>Subscribe to get our Newsletter</h3>
+                <input type="Email" required placeholder="your Email">
+                <input id=click type="submit" value="Subscribe">
+            <p> produced by Sufyan.Hashem.Shaima.Sara.Shaima.Mozna</p>
+            <div class="container">
+                &copy; 2024 - Our_site - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
