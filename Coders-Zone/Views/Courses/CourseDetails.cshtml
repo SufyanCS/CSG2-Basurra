@@ -1,239 +1,279 @@
 ﻿@model List<TabModel>
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>Courses Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/CourseDetails.css" />
     </head>
-    <body>
-    
-    </div>
-
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .centered-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .nav.nav-tabs {
-            display: flex;
-            justify-content: center;
-        }
-
-            .nav.nav-tabs .nav-item {
-                text-align: center;
-            }
-
-            .nav.nav-tabs .nav-link {
-                color: black;
-            }
-
-                .nav.nav-tabs .nav-link:hover {
-                    color: orange;
-                }
-
-        .frame {
-            display: flex;
-            justify-content: space-between;
-            align-items: rigth;
-            padding: 5px;
-            background-color: #f1f1f1;
-        }
-    </style>
-    
-  
-    <ul class="nav nav-tabs">
-       
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Courses</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Blog</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="Page" href="#" role="button" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">LearnPress Add-On</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Premium Theme</a>
-        </li>
-        <div>
-            <a href="#">Login</a> / <a href="#">Register</a>
-        </div>
-    </ul>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .top-section {
-            background-color: black;
-            padding: 10px 200px 5px;
-        }
-
-        .content {
-            color: white;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-      /*   .breadcrumb {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        } */
-    </style>
- 
-      
-   
-
+    <body> 
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/courses">Courses</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="#">Course Name</a></li>
+
         </ol>
     </nav>
-
-    <div class="top-section">
-        <div class="container-fluid bg-dark"></div>
-        
-        <div class="row my-4">
-            <div class="col-md-6">
-                <div class="content">
-                    <h2>The Ultimate Guide to the best WordPress LMS Plugin</h2>
-                    
-                    <button class="btn btn-primary">Click Me</button>
+    <div class="top-section d-flex align-items-center">
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-md-8 col-12 mt-2">
+                    <div class="content">
+                        <div class="bg-dark bg-opacity-100 rounded py-2 mt-4 col-md-2 col-4 mx-3 h-100">
+                            <label>Category</label>
+                        </div>
+                        <h2 class="h1 h3-md mt-5 text-wrap">The Ultimate Guide to the best WordPress LMS Plugin</h2>
+                        <div class="row">
+                            <div class="col-md-8 col-12">
+                                <ul class="list-unstyled d-flex justify-content-between p-4 small mt-3">
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-mortarboard-fill text-warning" viewBox="0 0 16 16">
+                                            <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                                            <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                                        </svg>
+                                        111 Student
+                                    </li>
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bar-chart-fill text-warning" viewBox="0 0 16 16">
+                                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
+                                        </svg>
+                                        All Levels
+                                    </li>
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journals  text-warning" viewBox="0 0 16 16">
+                                            <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                            <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                        </svg>
+                                        34 Lessons
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-   
-
-    <style>
-        body {
-           /*  display: flex; */
-            justify-content: center;
-            align-items: center;
-           /*  height: 100vh;
-            margin: 0;
-            padding: 0; */
-        }
-
-        .layout-container {
-            width: 750px;
-            height: 600px;
-            background-color: #f1f1f1;
-            display: grid;
-            place-items: center;
-        }
-    </style>
- @*    <div class="layout-container">
-  <div style="display: flex; flex-direction: column;">
-    <ul class="nav nav-tabs" role="tablist" style="align-self: flex-start;">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="tab-1" data-bs-toggle="tab" href="#content-1" role="tab">Tab 1</a>
-      </li>
-    </ul>
-
-    <div class="tab-content" style="align-self: flex-start;">
-      <div class="tab-pane fade show active" id="content-1" role="tabpanel">
-        <h3>Tab 1</h3>
-
-
-        <div class="inner-frame">
-          <p>This is the text content within the "frame".</p>
-        </div>
-      </div>
-    </div>
-            <ul class="nav nav-tabs" role="tablist" style="align-self: flex-start;">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="tab-2" data-bs-toggle="tab" href="#content-1" role="tab">Tab 1</a>
-                </li>
-            </ul>
-            <div class="tab-content" style="align-self: flex-start;">
-                <div class="tab-pane fade show active" id="content-1" role="tabpanel">
-                    <h3>Tab 2</h3>
-
-
-                    <div class="inner-frame">
-                        <p>This is the text content within the "frame". in tab2</p>
+                <div class="col-md-4 col-12 mt-5">
+                    <div class="card">
+                        <img src="/images/course3.png" class="card-img-top" alt="Course Image">
+                        <div class="card-body text-center">
+                            <div>
+                                <span class="text-success">Free</span>
+                            </div>
+                            <a href="#" class="btn btn-warning rounded-pill mt-3">Start Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-  </div>
-</div> *@
-    <div class="layout-container">
-
-
-        <div style="display: flex; flex-direction: column;">
-            <ul class="nav nav-tabs" role="tablist" style="align-self: flex-start;">
-                @for (var i = 0; i < Model.Count; i++)
-                {
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link @(i == 0 ? "active" : "")" id="tab-@(i)" data-bs-toggle="tab" href="#content-@(i)" role="tab">@Model[i].Title</a>
-                    </li>
-                }
-            </ul>
-
+        </div>
+    </div>
+    <div class="">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-12 layout-container px-0 yx-0">
+                <div class="mx-2">
+                <ul class="nav nav-tabs" role="tablist">
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link @(i == 0 ? "active" : "")" id="tab-@(i)" data-bs-toggle="tab" href="#content-@(i)" role="tab">@Model[i].Title</a>
+                        </li>
+                    }
+                </ul> 
             <div class="tab-content" style="align-self: flex-start;">
                 @for (var i = 0; i < Model.Count; i++)
                 {
-                    <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="content-@(i)" role="tabpanel">
+                            <div class="tab-pane my-4 mx-2 fade @(i == 0 ? "show active" : "")" id="content-@(i)" role="tabpanel">
                         <h3>@Model[i].Title</h3>
                         @if (i == 1) // Check if it's Tab 2
                         {
-                            <iframe src="https://bing.com" style="width: 100%; height: 400px,;"> </iframe>
-                           @*  <div class="layout-container">
-                                
-                                <div style="display: flex; flex-direction: column;white-space;">
-                                    <p>
-                                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                                            Toggle width collapse
-                                        </button>
-                                    </p>
-                                    <div style="min-height: 120px;">
-                                        <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                                            <div class="card card-body" style="width: 300px;">
-                                                This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-12 px-0">
+                                                <div style="height:70px;" class="bg-white d-flex flex-column justify-content-center my-3 px-3 rounded">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <div>
+                                                            <h4 class="mb-0 small">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                                                                    <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                                                    <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                                                </svg>
+                                                                1: Getting Started with Bootstrap
+                                                            </h4>
+                                                        </div>
+                                                        <span class="text-muted small">1 hour
+
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div style="height:70px;" class="bg-white d-flex flex-column justify-content-center my-3 px-3 rounded">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <div>
+                                                            <h4 class="mb-0 small">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                                                                    <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                                                    <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                                                </svg>
+                                                                2: Getting Started with Bootstrap
+                                                            </h4>
+                                                        </div>
+                                                        <span class="text-muted small">
+                                                            1 hour
+
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div style="height:70px;" class="bg-white d-flex flex-column justify-content-center my-3 px-3 rounded">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <div>
+                                                            <h4 class="mb-0 small">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                                                                    <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                                                    <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                                                </svg>
+                                                                3: Getting Started with Bootstrap
+                                                            </h4>
+                                                        </div>
+                                                        <span class="text-muted small">
+                                                            1 hour
+
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <ul class="nav nav-tabs" role="tablist" style="align-self: flex-start;">
-                                    </ul>
-                                       
+                                }
+                                else if(i == 2)
+                                {
+                                    <div class="list-group w-100">
+                                        <div class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">Question 1</h5>
+                                            </div>
+                                            <p class="mb-1">
+                                                Short & concise version of the answer.
+                                            </p>
 
-                                    <div class="tab-content" style="align-self: flex-start;">
+                                        </div>
+                                        <div class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">Question 2</h5>
+                                            </div>
+                                            <p class="mb-1">
+                                                Short & concise version of the answer.
+                                            </p>
+                                            
+                                        </div>
+                                        <div  class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">Question 3</h5>
+                                            </div>
+                                            <p class="mb-1">
+                                                Short & concise version of the answer.
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div> *@
-                           
-                        }
-                        else
+                                }
+                                else if (i == 3)
+                                {
+                                   <div class="card">
+              <div class="row">
+                  <div class="col-10">
+                      <div class="comment-box ml-2">
+                          <h4>User Name, Add a comment!</h4>
+                          <div class="rating"> 
+                              <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                              <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
+                              <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                              <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                              <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                          </div>
+                          <div class="comment-area">
+                              <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea>
+                          </div>
+                          <div class="comment-btns mt-2">  
+                              <div class="row">
+                                  <div class="col-6">
+                                      
+                                      <div class="pull-right">
+                                      
+                                      <button class="btn btn-success send btn-md">Send <i class="fa fa-long-arrow-right ml-1"></i></button>        
+                                      </div>
+                                  </div>     
+                              </div>
+                          </div>      
+                      </div>     
+                  </div>       
+              </div>
+          </div>
+                                    <section style="background-color: #f7f6f6;">
+                                        <div class="container my-3 py-5 text-dark">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="col-md-12">
+                                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                                        <h4 class="text-dark mb-0"> Reviews (2)</h4>
+      
+                                                    </div>
+
+                                                    <div class="card mb-3">
+                                                        <div class="card-body">
+                                                            <div class="d-flex flex-start">
+
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <h6 class="text-primary fw-bold mb-0">
+                                                                            #_User Name
+                                                                            <span class="text-dark ms-2">Amazing Course! </span>
+                                                                        </h6>
+                                                                        <div class="rating">
+                                                                            <span class="empty-star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card mb-3">
+                                                        <div class="card-body">
+                                                            <div class="d-flex flex-start">
+                                                                
+                                                                <div class="w-100">
+                                                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                        <h6 class="text-primary fw-bold mb-0">
+                                                                            #_User Name
+                                                                            <span class="text-dark ms-2">Amazing Course! </span>
+                                                                        </h6>
+                                                                        <div class="rating">
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                            <span class="star">&#9733;</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                }
+
+                                else
                         {
                             <p>@Model[i].Content</p>
                         }
@@ -241,9 +281,9 @@
                 }
             </div>
         </div>
-
-
-       
-
+                </div>
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
