@@ -1,8 +1,14 @@
+using Coders_Zone.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<CoderZoneDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("CoderConnectionStrings"));
+});
 
 var app = builder.Build();
 

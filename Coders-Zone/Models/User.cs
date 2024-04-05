@@ -14,5 +14,7 @@ namespace Coders_Zone.Models
 
         public ICollection<UserCourse> UserCourses { get; set; } // Navigation property for UserCourses
         public ICollection<Review> Reviews { get; set; } // Navigation property for Reviews
+        public ICollection<UserLesson> UserLessons { get; set; }
+
     }
 }
