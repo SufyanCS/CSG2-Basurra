@@ -9,6 +9,10 @@ namespace Coders_Zone.Controllers
         {
             return View();
         }
+        public IActionResult SingleCourse()
+        {
+            return View();
+        }
         public IActionResult CourseDetails()
         {
             var tabs = new List<TabModel>
