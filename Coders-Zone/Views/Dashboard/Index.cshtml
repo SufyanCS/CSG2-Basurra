@@ -118,14 +118,19 @@
              @foreach (var course in Model.Courses)
                         {
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">@course.Id</th>
                                 <td>@course.Name</td>
                                 <td>@course.Category</td>
                                 <td>@course.NumLessons Lessons</td>
                                 <td>@course.Level</td>
                                 <td>students</td>
-                                <td><button type="button" class="btn btn-primary">Edit</button></td>
-                                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                <td><a asp-controller="Dashboard" asp-action="Edit" asp-route-Id="@course.Id" type="button" class="btn btn-primary">Edit</a></td>
+                                <td>
+                                    <form asp-controller="Dashboard" asp-action="Delete" method="post">
+                                        <input type="hidden" name="Id" value="@course.Id" />
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         }
                     </tbody>

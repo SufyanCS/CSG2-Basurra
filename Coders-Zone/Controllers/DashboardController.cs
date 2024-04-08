@@ -40,5 +40,49 @@ namespace Coders_Zone.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public IActionResult Edit(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+            
+            var course = _db.Courses.Find(Id);  
+            
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Course course)
+        {
+            _db.Courses.Update(course);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var course = _db.Courses.Find(id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            _db.Courses.Remove(course);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
