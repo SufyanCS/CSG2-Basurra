@@ -4,6 +4,7 @@ using Coders_Zone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coders_Zone.Migrations
 {
     [DbContext(typeof(CoderZoneDbContext))]
-    partial class CoderZoneDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240408154642_MigrationCodersZone")]
+    partial class MigrationCodersZone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
