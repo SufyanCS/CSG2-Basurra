@@ -1,1 +1,247 @@
+body {
+    *
+
+{
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding: 30px 200px;
+    margin: 10px;
+}
+
+.main {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, white,rgb(226, 118, 30));
+}
+
+    .main h1 {
+        font size :8.3em;
+        font-weight: 1000;
+    }
+
+
+    .main h5 {
+        color: gray;
+    }
+
+.title {
+    display: flex;
+    justify: center;
+    color: gray;
+    font-size: 1.2en;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    width: 5.40em;
+    border-radius: 10px;
+    padding: 33px;
+    margin: 15px;
+    transition: 0.5s ease;
+    border: 0.2px solid #a9a9a9;
+    text-align: center;
+}
+
+    .card:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 25px rgba(1 1 1/15%);
+    }
+
+        .card:hover h3 {
+            color: rgb(226, 118, 30);
+        }
+
+.content img {
+    color: rgb(226, 118, 30);
+    font-size: 100em;
+    text-align: center;
+}
+
+.info {
+    text-align: center;
+}
+
+    .info h3 {
+        color: black;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+
+.main-btn {
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.3375em 0.4000em;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-bottom: 40px transition :0.5s ease;
+    border: 0.2px solid black;
+    float: right;
+}
+
+    .main-btn:hover {
+        color: rgb(226, 118, 30);
+    }
+
+.courses {
+    background-color: white;
+}
+
+    .courses.content {
+        margin-top: 30px;
+    }
+
+.courses-card {
+    box-shadow: 0 5px 25px rgba(1 1 1/15%);
+    min-height: 18em;
+    width: 17em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 11px;
+    transition: 0.7s ease;
+}
+
+    .courses-card:hover {
+        transform: scale(1.1);
+    }
+
+.courses-image img {
+    width: 100%;
+}
+
+.courses-info {
+    padding: 1em;
+}
+
+.courses-category {
+    font-size: 0.8 em;
+    color: gray;
+}
+
+.courses-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.courses-btw {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    foot-weight: 800px, margin-top:10px;
+}
+
+.more-details {
+    text-decoration: none;
+    color: black;
+}
+
+.courses-card:hover {
+    color: rgb(226, 118, 30);
+}
+
+.picture1 {
+    background: white;
+    padding: var;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-items: right;
+    border-radius: 140px;
+    height: 5cm;
+}
+
+    .picture1 .box-image {
+        float: right;
+        height: 6cm;
+        overflow: hidden;
+        border-radius: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+
+.about {
+    background: white;
+    padding: var;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    .about .container-image {
+        width: 50%;
+    }
+
+        .about .container-image img {
+            width: 90%
+        }
+
+    .about.container-text {
+        width: 35%;
+    }
+
+p {
+    color: black;
+    letter-spacing: 1px;
+    line-height: 1.8rem;
+    font-size: 1rem;
+}
+
+h5 {
+    margin-bottom: 1.5rem;
+    color: gray;
+    justify-content: space-around;
+}
+
+.card2 {
+    background-color: rgb(235, 235, 235);
+    width: 7.12em;
+    border-radius: 10px;
+    padding: 27px;
+    margin: 15px;
+    transition: 0.5s ease;
+    text-align: center;
+    text-align: rgb(226, 118, 30);
+}
+
+    .card2 h3 {
+        color: rgb(226, 118, 30);
+    }
+
+.main-btn2 {
+    color: white;
+    background-color: rgb(226, 118, 30);
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.4375em 0.5000em;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-bottom: 40px transition :0.5s ease;
+    border: 0.2px solid rgb(226, 118, 30);
+}
+
+}
 
