@@ -28,13 +28,13 @@ namespace Coders_Zone.Controllers
 
             return View(viewModel);
         }
-        public IActionResult New()
+        public IActionResult NewCourse()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult New(Course course)
+        public IActionResult NewCourse(Course course)
         {
             _db.Courses.Add(course);
             _db.SaveChanges();
@@ -42,7 +42,7 @@ namespace Coders_Zone.Controllers
         }
 
 
-        public IActionResult Edit(int? Id)
+        public IActionResult EditCourse(int? Id)
         {
             if (Id == null || Id == 0)
             {
@@ -61,7 +61,7 @@ namespace Coders_Zone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Course course)
+        public IActionResult EditCourse(Course course)
         {
             _db.Courses.Update(course);
             _db.SaveChanges();
@@ -70,7 +70,7 @@ namespace Coders_Zone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteCourse(int id)
         {
             var course = _db.Courses.Find(id);
             if (course == null)
@@ -79,6 +79,68 @@ namespace Coders_Zone.Controllers
             }
 
             _db.Courses.Remove(course);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+        public IActionResult NewLesson()
+        {
+            var courses = _db.Courses.ToList();
+
+            ViewBag.Courses = courses;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult NewLesson(Lesson lesson)
+        {
+            _db.Lessons.Add(lesson);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        public IActionResult EditLesson(int? Id)
+        {
+            var courses = _db.Courses.ToList();
+
+            ViewBag.Courses = courses;
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+
+            var lesson = _db.Lessons.Find(Id);
+
+            if (lesson == null)
+            {
+                return NotFound();
+            }
+
+            return View(lesson);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditLesson(Lesson lesson)
+        {
+            _db.Lessons.Update(lesson);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        public IActionResult DeleteLesson(int id)
+        {
+            var lesson = _db.Lessons.Find(id);
+            if (lesson == null)
+            {
+                return NotFound();
+            }
+
+            _db.Lessons.Remove(lesson);
             _db.SaveChanges();
 
             return RedirectToAction("Index");

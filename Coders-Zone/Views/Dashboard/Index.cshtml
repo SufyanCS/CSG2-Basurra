@@ -43,6 +43,12 @@
               Users
             </a>
           </li>
+                <li>
+                    <a href="#" class="nav-link text-white" onclick="showLessonsForm()">
+                        <svg class="bi me-2" width="16" height="16"></svg>
+                        Lessons
+                    </a>
+                </li>
         </ul>
         <hr>
     </div>
@@ -98,7 +104,7 @@
         <div id="dashboardForm" style="display: none;" class="px-24">
                 <div class="d-flex flex-row justify-content-between p-4">
                     <h2>Courses</h2>
-                    <a asp-controller="Dashboard" asp-action="New" class="btn btn-success">New Course +</a>
+                    <a asp-controller="Dashboard" asp-action="NewCourse" class="btn btn-success">New Course +</a>
 
                 </div>
           <table class="table table-striped">
@@ -117,16 +123,18 @@
             <tbody>
              @foreach (var course in Model.Courses)
                         {
+                            var numLessons = Model.Lessons.Count(lesson => lesson.CourseId == course.Id);
+
                             <tr>
                                 <th scope="row">@course.Id</th>
                                 <td>@course.Name</td>
                                 <td>@course.Category</td>
-                                <td>@course.NumLessons Lessons</td>
+                                <td>@numLessons Lessons</td>
                                 <td>@course.Level</td>
                                 <td>students</td>
-                                <td><a asp-controller="Dashboard" asp-action="Edit" asp-route-Id="@course.Id" type="button" class="btn btn-primary">Edit</a></td>
+                                <td><a asp-controller="Dashboard" asp-action="EditCourse" asp-route-Id="@course.Id" type="button" class="btn btn-primary">Edit</a></td>
                                 <td>
-                                    <form asp-controller="Dashboard" asp-action="Delete" method="post">
+                                    <form asp-controller="Dashboard" asp-action="DeleteCourse" method="post">
                                         <input type="hidden" name="Id" value="@course.Id" />
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
@@ -177,6 +185,48 @@
         </div>
 
 
+
+            <div id="lessonsForm" style="display: none;">
+                <div class="d-flex flex-row justify-content-between p-4">
+                    <h2>Lessons</h2>
+                    <a asp-controller="Dashboard" asp-action="NewLesson" class="btn btn-success">New Lesson +</a>
+
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Lesson Name</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Order</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var lesson in Model.Lessons)
+                        {
+                            <tr>
+                                <th scope="row">@lesson.Id</th>
+                                <td>@lesson.Name</td>
+                                <td>@Model.Courses.Find(c => c.Id == lesson.CourseId)?.Name</td>
+                                <td>@lesson.Order</td>
+                                <td>@lesson.Duration</td>
+                                <td><a type="button" asp-controller="Dashboard" asp-action="EditLesson" asp-route-Id="@lesson.Id" class="btn btn-success">Edit</a></td>
+
+                                <td>
+                                    <form asp-controller="Dashboard" asp-action="DeleteLesson" method="post">
+                                        <input type="hidden" name="Id" value="@lesson.Id" />
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
     </div>
   </div>
   <script>
@@ -226,11 +276,17 @@
       hideAllForms();
             document.getElementById('usersForm').style.display = 'block';
     }
+        function showLessonsForm() {
+            hideAllForms();
+            document.getElementById('lessonsForm').style.display = 'block';
+        }
 
     function hideAllForms() {
       document.getElementById('homeForm').style.display = 'none';
       document.getElementById('dashboardForm').style.display = 'none';
       document.getElementById('usersForm').style.display = 'none';
+            document.getElementById('lessonsForm').style.display = 'none';
+
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
