@@ -186,6 +186,9 @@ namespace Coders_Zone.Migrations
                     b.Property<bool>("IsAdmin")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 

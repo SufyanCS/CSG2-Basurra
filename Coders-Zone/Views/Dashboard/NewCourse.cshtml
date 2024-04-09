@@ -12,28 +12,27 @@
 
         <div class="row">
             <div class="form-check form-switch mx-4">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" asp-for="IsPublic" checked>
-                <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
+                <input class="form-check-input" type="checkbox"  asp-for="IsPublic" checked>
+                <label class="form-check-label">Public</label>
             </div>
             <div class="col-sm-6 ">
                 <div class="">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control border border-1 border-dark my-2" id="floatingInput" placeholder="name@example.com" asp-for="Name" />
-                        <label for="floatingInput" asp-for="Name">Course Name</label>
+                        <input type="text" class="form-control border border-1 border-dark my-2" placeholder="Course Name" asp-for="Name" required />
+                        <label asp-for="Name">Course Name</label>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-floating mb-3">
-                    <input asp-for="Category" type="text" class="form-control border border-1 border-dark my-2" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput" asp-for="Category">Course Category</label>
+                    <input asp-for="Category" type="text" class="form-control border border-1 border-dark my-2" placeholder="Course Category" required>
+                    <label asp-for="Category">Course Category</label>
                 </div>
             </div>
         </div>
         <div class="input-group mb-3 border border-1 border-dark">
-            <label asp-for="Level" class="input-group-text" for="inputGroupSelect01">Options</label>
-            <select asp-for="Level" class="form-select" id="inputGroupSelect01">
-                <option selected>Select course level</option>
+            <label asp-for="Level" class="input-group-text">Options</label>
+            <select asp-for="Level" class="form-select" required>
                 <option value="All levels">All levels</option>
                 <option value="Beginning">Beginning</option>
                 <option value="Intermediate">Intermediate</option>
@@ -41,27 +40,27 @@
             </select>
         </div>
         <div class="form-floating mb-3">
-            <input asp-for="CoverImage" type="text" class="form-control border border-1 border-dark my-2" id="coverImageInput">
-            <label for="coverImageInput">Cover Image</label>
+            <input asp-for="CoverImage" type="text" class="form-control border border-1 border-dark my-2" required>
+            <label asp-for="CoverImage">Cover Image</label>
         </div>
         <div class="form-floating border border-1 border-dark">
-            <textarea asp-for="Overview" class="form-control" placeholder="Course Overview" id="floatingTextarea2" style="height: 100px"></textarea>
-            <label asp-for="Overview" for="floatingTextarea2">Course OverView</label>
+            <textarea asp-for="Overview" class="form-control" placeholder="Course Overview" style="height: 100px" required></textarea>
+            <label asp-for="Overview">Course OverView</label>
         </div>
         
         <div class="row">
             <div class="col-sm-6 ">
                 <div class="">
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control border border-1 border-dark my-2" id="floatingInput" placeholder="name@example.com" asp-for="Duration" />
-                        <label for="floatingInput" asp-for="Duration">Duration in Hours</label>
+                        <input type="number" class="form-control border border-1 border-dark my-2" placeholder="Duration" asp-for="Duration" required />
+                        <label asp-for="Duration">Duration in Hours</label>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-floating mb-3">
-                    <input asp-for="NumLessons" type="number" class="form-control border border-1 border-dark my-2" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput" asp-for="NumLessons">Number of lessons</label>
+                    <input asp-for="NumLessons" type="number" class="form-control border border-1 border-dark my-2" placeholder="Number of Lessons" required>
+                    <label asp-for="NumLessons">Number of lessons</label>
                 </div>
             </div>
         </div>

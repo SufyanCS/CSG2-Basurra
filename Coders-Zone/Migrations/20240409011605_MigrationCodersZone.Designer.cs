@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coders_Zone.Migrations
 {
     [DbContext(typeof(CoderZoneDbContext))]
-    [Migration("20240408154642_MigrationCodersZone")]
+    [Migration("20240409011605_MigrationCodersZone")]
     partial class MigrationCodersZone
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -186,6 +186,9 @@ namespace Coders_Zone.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsBanned")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("RegistrationDate")

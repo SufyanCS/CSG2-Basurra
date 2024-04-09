@@ -146,5 +146,37 @@ namespace Coders_Zone.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult UnbanUser(int userId)
+        {
+            var user = _db.Users.Find(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.IsBanned = false;
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost]
+        public IActionResult BanUser(int userId)
+        {
+            var user = _db.Users.Find(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.IsBanned = true;
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
