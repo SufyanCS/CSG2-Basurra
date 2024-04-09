@@ -11,7 +11,7 @@ namespace Coders_Zone.Models
         public string HashedPassword { get; set; } // Hashed password
         public DateTime RegistrationDate { get; set; }
         public bool IsAdmin { get; set; }
-
+        public bool IsBanned { get; set; } // New property to indicate whether the user is banned or not
         public ICollection<UserCourse> UserCourses { get; set; } // Navigation property for UserCourses
         public ICollection<Review> Reviews { get; set; } // Navigation property for Reviews
         public ICollection<UserLesson> UserLessons { get; set; }
