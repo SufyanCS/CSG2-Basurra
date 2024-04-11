@@ -1,39 +1,102 @@
-body {
-    *
-
+body 
 {
     margin: 0;
     padding: 0;
+    background-color:white;
 }
 
 section {
-    padding: 30px 200px;
     margin: 10px;
 }
 
-.main {
-    width: 100%;
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, white,rgb(226, 118, 30));
+@media (max-width: 767px) {
+    /* Mobile styles */
+    section {
+        padding: 30px 10px;
+    }
 }
 
-    .main h1 {
-        font size :8.3em;
-        font-weight: 1000;
+@media (min-width: 768px) {
+    /* Desktop styles */
+    section {
+        padding: 30px 40px;
+    }
+}
+.main {
+    width: 100%;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+background: linear-gradient(97.77deg, #FFF5BE 0%, #D0F7EA 97.73%);
+
+}
+
+    .main .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
+
+    .text h1 span {
+        color:rgb(226, 118, 30);
+    }
+
+   
+
+    .main h1 {
+        font-size:36px;
+        font-weight: 900;
+    }
 
     .main h5 {
         color: gray;
     }
 
+@media (max-width: 767px) {
+    /* Mobile styles */
+    .main .image {
+        display: none;
+
+    }
+    .main .text {
+        width:100%;
+    }
+    .main h1 {
+        font-size: 28px;
+        font-weight: 800;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Desktop styles */
+     .main .image {
+        max-width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        height:555px;
+    }
+    .main .image img {
+        width: 100%;
+        height: auto;
+    }
+    .main .text {
+        flex-basis: 50%;
+        max-width: 50%;
+        padding: 20px;
+    }
+    .main h1 {
+        font-size: 36px;
+        font-weight: 900;
+    }
+}
+
 .title {
     display: flex;
     justify: center;
     color: gray;
-    font-size: 1.2en;
+    font-size: 1.2em;
     margin-bottom: 10px;
 }
 
@@ -46,13 +109,16 @@ section {
 
 .card {
     background-color: white;
-    width: 5.40em;
+    width: 10.40em;
+    height: 10.40em;
     border-radius: 10px;
-    padding: 33px;
+    padding: 5px;
     margin: 15px;
     transition: 0.5s ease;
-    border: 0.2px solid #a9a9a9;
+    border: 1px solid #e2dede;
     text-align: center;
+    justify-content: center;
+    align-content:center;
 }
 
     .card:hover {
@@ -79,25 +145,31 @@ section {
         font-size: 1.2em;
         font-weight: 700;
     }
-
+    .info h2 {
+        color: black;
+        font-size: 32px;
+        font-weight: 800;
+    }
 
 .main-btn {
-    color: black;
+    color: rgb(226, 118, 30);
     background-color: white;
     text-decoration: none;
     font-size: 1.1em;
     font-weight: 600;
     display: inline-block;
-    padding: 0.3375em 0.4000em;
+    padding: 6px 12px;
     letter-spacing: 1px;
     border-radius: 20px;
     margin-bottom: 40px transition :0.5s ease;
-    border: 0.2px solid black;
+    border: 0.2px solid rgb(226, 118, 30);
     float: right;
+    transition: 0.2s ease;
 }
 
     .main-btn:hover {
-        color: rgb(226, 118, 30);
+        color: white;
+        background-color: rgb(226, 118, 30);
     }
 
 .courses {
@@ -110,8 +182,7 @@ section {
 
 .courses-card {
     box-shadow: 0 5px 25px rgba(1 1 1/15%);
-    min-height: 18em;
-    width: 17em;
+    width: 21em;
     overflow: hidden;
     border-radius: 10px;
     margin: 11px;
@@ -119,24 +190,30 @@ section {
 }
 
     .courses-card:hover {
-        transform: scale(1.1);
+        transform: scale(1.06);
     }
 
 .courses-image img {
     width: 100%;
+    height:230px
 }
 
 .courses-info {
-    padding: 1em;
+    height:190px;
+    padding:0px 15px;
+
 }
 
 .courses-category {
     font-size: 0.8 em;
+    padding:0px;
+    margin:5px 0px;
     color: gray;
 }
 
 .courses-title {
     display: flex;
+    padding-right:20px;
     justify-content: space-between;
 }
 
@@ -144,41 +221,53 @@ section {
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    foot-weight: 800px, margin-top:10px;
+
 }
 
 .more-details {
-    text-decoration: none;
-    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: right;
+    padding-top:12px
 }
+    .more-details a {
+        text-decoration: none;
+        color: rgb(226, 118, 30);
+    }
 
+        .more-details a:hover {
+            text-decoration: underline;
+        }
 .courses-card:hover {
     color: rgb(226, 118, 30);
+
 }
 
 .picture1 {
     background: white;
-    padding: var;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    align-items: right;
-    border-radius: 140px;
-    height: 5cm;
+    margin-top:50px
+}
+.box-text {
+    margin: 10px 35px;
 }
 
-    .picture1 .box-image {
-        float: right;
-        height: 6cm;
-        overflow: hidden;
-        border-radius: 100px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+    .box-text a {
+        margin-top: 10px
     }
+
+
+@media screen and (max-width: 768px) {
+    .picture1 {
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+}
+
+
 
 
 .about {
@@ -216,7 +305,7 @@ h5 {
 
 .card2 {
     background-color: rgb(235, 235, 235);
-    width: 7.12em;
+    width: 16em;
     border-radius: 10px;
     padding: 27px;
     margin: 15px;
@@ -225,8 +314,13 @@ h5 {
     text-align: rgb(226, 118, 30);
 }
 
-    .card2 h3 {
+    .card2 h2 {
         color: rgb(226, 118, 30);
+        padding-top:12px;
+    }
+    .card2 p {
+        padding-top:5px;
+        font-weight: 700;
     }
 
 .main-btn2 {
@@ -236,12 +330,20 @@ h5 {
     font-size: 1em;
     font-weight: 600;
     display: inline-block;
-    padding: 0.4375em 0.5000em;
+    padding: 12px 16px;
     letter-spacing: 1px;
-    border-radius: 20px;
-    margin-bottom: 40px transition :0.5s ease;
-    border: 0.2px solid rgb(226, 118, 30);
+    border-radius: 25px;
+    margin-bottom: 40px ;
+    transition :0.2s ease;
+    border: 1px solid rgb(226, 118, 30);
 }
-
+    .main-btn2:hover {
+        background-color: white;
+        color: rgb(226, 118, 30);
+    }
+    .icons-color {
+        color: rgb(226, 118, 30);
+    }
+.cards{
+    margin:100px 0px
 }
-
