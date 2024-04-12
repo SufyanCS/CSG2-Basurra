@@ -73,11 +73,11 @@
         <a href="#" class="logo"><em>Coders Zone</em></a>
         <div class="navbar" style="display:inline-block;">
             <a class="active"><em>Home</em></a>
-            <a class="active"><em>Courses</em></a>
-            <a class="active"><em>Quizzes</em></a>
+            <a class="active" asp-controller="Courses" asp-action="index"><em>Courses</em></a>
+            <a class="active" asp-controller="" asp-action=""><em>Quizzes</em></a>
             <a class="active"><em>Admin</em></a>
-            <a class="active"><em>Log In</em></a>
-            <a class="active"><em>Sign Up</em></a>
+            <a class="active" asp-controller="Login" asp-action="index"><em>Log In</em></a>
+            <a class="active" asp-controller="SignUp" asp-action="index"><em>Sign Up</em></a>
         </div>
     </header>
 
@@ -99,5 +99,6 @@
             </div>
         </div>
     </footer>
+    @await RenderSectionAsync("Scripts", required:false)
 </body>
 </html>

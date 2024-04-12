@@ -47,13 +47,13 @@
 .active-Login-word {
     background-color: #49BBBD;
     border-radius: 35px;
-    padding-left: 30%;
+    padding-left: 20%;
     text-align: center;
-    padding-right: 33%;
+    padding-right:35%;
     padding-top: 3%;
     padding-bottom: 3%;
     margin-left: 0px;
-    margin-right: 10px;
+    margin-right: 9%;
     text-decoration: none;
     color: white;
     width: 20%;
@@ -74,8 +74,7 @@
 }
 
 .active-Register-word {
-
-    background-color: #49BBBD;
+    /* background-color: #49BBBD;
     border-radius: 35px;
     padding-left: 30%;
     text-align: center;
@@ -84,6 +83,19 @@
     padding-bottom: 3%;
     margin-left: 0px;
     margin-right: 25px;
+    text-decoration: none;
+    color: white;
+    width: 20%;*/
+    
+    background-color: #49BBBD;
+    border-radius: 35px;
+    padding-left: 15%;
+    text-align: center;
+    padding-right:43%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: 0px;
+    margin-right: 11%;
     text-decoration: none;
     color: white;
     width: 20%;
