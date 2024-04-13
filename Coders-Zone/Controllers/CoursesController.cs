@@ -1,13 +1,42 @@
-﻿using Coders_Zone.Models;
+﻿using Coders_Zone.Data;
+using Coders_Zone.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coders_Zone.Controllers
 {
     public class CoursesController : Controller
     {
-        public IActionResult Index()
+        public CoursesController(CoderZoneDbContext db)
         {
-            return View();
+            _db = db;
+        }
+        private readonly CoderZoneDbContext _db;
+        public IActionResult Index(string search, string[] category, string[] level)
+        {
+            var coursesQuery = string.IsNullOrEmpty(search)
+          ? _db.Courses
+          : _db.Courses.Where(c => c.Name.Contains(search));
+
+            if (category != null && category.Length > 0)
+            {
+                coursesQuery = coursesQuery.Where(c => category.Contains(c.Category));
+            }
+
+            if (level != null && level.Length > 0)
+            {
+                coursesQuery = coursesQuery.Where(c => level.Contains(c.Level));
+            }
+
+            var coursesList = coursesQuery.ToList();
+            var categories = _db.Courses.Select(c => c.Category).Distinct().ToList();
+            var viewModel = new CoursesViewModel
+            {
+                Courses = coursesList,
+                Categories = categories
+
+            };
+
+            return View(viewModel);
         }
         public IActionResult SingleCourse()
         {
