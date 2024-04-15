@@ -8,11 +8,14 @@ namespace Coders_Zone.Controllers
 {
     public class LoginController : Controller
     {
+     
         public LoginController(CoderZoneDbContext Db) 
         {
             _Db = Db;
         }
         private readonly CoderZoneDbContext _Db;
+
+       
         [HttpGet]
         public IActionResult Index()
         {
@@ -21,27 +24,31 @@ namespace Coders_Zone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+      
         public IActionResult Index(User login)
         {
-
+            
             if (string.IsNullOrEmpty(login.Username) && string.IsNullOrEmpty(login.HashedPassword))
             {
                 return View(login);
             }
 
-            if (login.IsBanned == true)
+            if (IsBanned(login.Username) == true)
             {
-                ModelState.AddModelError("HashedPassword", "Your account has been blocked.Please contact technical support");
+                //var banned = _Db.Users.FirstOrDefault(b => b.IsBanned);
+                //TempData["banned"] = banned.IsBanned;
+                TempData["Error"] = "Your account has been blocked.Please contact technical support";
+               // ModelState.AddModelError("HashedPassword", "Your account has been blocked.Please contact technical support");
                 return View(login);
             }
 
-           else if (IsValidUser(login.Username, login.HashedPassword) && login.IsAdmin == false) 
+           else if (IsValidUser(login.Username, login.HashedPassword) && IsAdmin(login.Username) == false) 
             
             {
                 return RedirectToAction("Index", "Courses");
 
             }
-            else if (IsValidUser(login.Username, login.HashedPassword) && login.IsAdmin == true)
+            else if (IsValidUser(login.Username, login.HashedPassword) && IsAdmin(login.Username) == true)
             {
                 return RedirectToAction("Index", "Dashboard");
             }
@@ -50,22 +57,7 @@ namespace Coders_Zone.Controllers
                 ModelState.AddModelError("HashedPassword", "Error in Username Or Password");
                 return View(login);
             }
-            //if (!string.IsNullOrEmpty(login.Username) && !string.IsNullOrEmpty(login.HashedPassword) && IsValidUser(login.Username, login.HashedPassword) && login.IsAdmin == false)
-            //{
-
-                //        return RedirectToAction("Index", "Courses");
-                //    }
-                //    else if ( !string.IsNullOrEmpty(login.Username) && !string.IsNullOrEmpty(login.HashedPassword) && IsValidUser(login.Username, login.HashedPassword) && login.IsAdmin == true)
-                //    {
-                //        return RedirectToAction("Index", "Dashboard");
-
-                //    }
-                //    else
-                //    {
-                //        ModelState.AddModelError("HashedPassword", "Error in Username Or Password");
-                //        return View(login);
-                //    }
-
+            
 
             }
 
@@ -74,5 +66,21 @@ namespace Coders_Zone.Controllers
             var user=_Db.Users.FirstOrDefault(u=> u.Username== username && u.HashedPassword==password);
             return user!=null;
         }
+        public bool IsBanned(string username)
+        {
+            var banned = _Db.Users.FirstOrDefault(b => b.Username == username);
+
+            return banned.IsBanned;
+
+        }
+        public bool IsAdmin(string username)
+        {
+            var Admin = _Db.Users.FirstOrDefault(b => b.Username == username);
+
+            return Admin.IsAdmin;
+
+        }
+
+
     }
 }

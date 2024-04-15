@@ -7,14 +7,39 @@ namespace Coders_Zone.Controllers
 {
     public class CoursesController : Controller
     {
-        private readonly CoderZoneDbContext _context;
-        public CoursesController( CoderZoneDbContext context)
+
+        public CoursesController(CoderZoneDbContext db)
+
         {
-            _context = context;   
+            _db = db;
         }
-        public IActionResult Index()
+        private readonly CoderZoneDbContext _db;
+        public IActionResult Index(string search, string[] category, string[] level)
         {
-            return View();
+            var coursesQuery = string.IsNullOrEmpty(search)
+          ? _db.Courses
+          : _db.Courses.Where(c => c.Name.Contains(search));
+
+            if (category != null && category.Length > 0)
+            {
+                coursesQuery = coursesQuery.Where(c => category.Contains(c.Category));
+            }
+
+            if (level != null && level.Length > 0)
+            {
+                coursesQuery = coursesQuery.Where(c => level.Contains(c.Level));
+            }
+
+            var coursesList = coursesQuery.ToList();
+            var categories = _db.Courses.Select(c => c.Category).Distinct().ToList();
+            var viewModel = new CoursesViewModel
+            {
+                Courses = coursesList,
+                Categories = categories
+
+            };
+
+            return View(viewModel);
         }
         public IActionResult SingleCourse(int id )
         {
