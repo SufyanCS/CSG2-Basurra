@@ -7,18 +7,18 @@ namespace Coders_Zone.Controllers
 {
     public class CoursesController : Controller
     {
-        private readonly CoderZoneDbContext _context;
-        public CoursesController( CoderZoneDbContext context)
-        {
-            _context = context;   
-        }
+        //private readonly CoderZoneDbContext _context;
+        //public CoursesController( CoderZoneDbContext context)
+        //{
+        //    _context = context;   
+        //}
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult SingleCourse(int id )
         {
-            var Course = _context.Courses
+            var Course = _db.Courses
                 .Include(c => c.Lessons)// for Lodaing the realted Lessons 
                 .FirstOrDefault(c => c.Id == id);
             if (Course == null)
