@@ -15,6 +15,6 @@
         public bool IsPreview { get; set; }
 
         public ICollection<UserLesson> UserLessons { get; set; } // Navigation property for UserLessons
-        public ICollection<Lesson> Lessons { get; set; }
+        //public ICollection<Lesson> Lessons { get; set; }
     }
 }

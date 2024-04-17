@@ -57,7 +57,7 @@ namespace Coders_Zone.Controllers
             var model = new Lesson
             {
                 Course = Course,
-                Lessons = Course.Lessons
+                //Lessons = Course.Lessons
             };
             return View(model);
         }
