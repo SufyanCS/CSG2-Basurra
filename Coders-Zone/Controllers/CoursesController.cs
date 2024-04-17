@@ -1,5 +1,7 @@
-﻿using Coders_Zone.Models;
+﻿using Coders_Zone.Data;
+using Coders_Zone.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coders_Zone.Controllers
 {
@@ -8,6 +10,11 @@ namespace Coders_Zone.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        public CoursesController(CoderZoneDbContext db)
+
+        {
+            _db = db;
         }
         private readonly CoderZoneDbContext _db;
         public IActionResult Index(string search, string[] category, string[] level)
