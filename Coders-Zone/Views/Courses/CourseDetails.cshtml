@@ -188,7 +188,11 @@
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-md-12">
                                             <div class="d-flex justify-content-between align-items-center mb-4">
-                                                <h4 class="text-dark mb-0"> Reviews (2)</h4>
+                                                @{
+                                                    int reviewCount = Model.Reviews.Count;
+                                                    string reviewText = reviewCount > 0 ? $"Reviews ({reviewCount})" : "No reviews yet";
+                                                }
+                                                <h4 class="text-dark mb-0">@reviewText</h4>
 
                                             </div>
                                             @foreach (var review in Model.Reviews){
