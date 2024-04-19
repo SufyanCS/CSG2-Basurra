@@ -12,6 +12,13 @@
         public string Duration { get; set; }
         public string CoverImage { get; set; }
         public List<Lesson> Lessons { get; set; }
+        public List<Faq> Faqs { get; set; }
+        public List<Review> Reviews { get; set; }
+        public List<User> Users { get; set; } // Add this property for Users
+
+
+
+
 
     }
 }

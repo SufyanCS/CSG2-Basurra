@@ -133,57 +133,48 @@
                         <div class="tab-pane my-4 mx-2 fade" id="content-2" role="tabpanel">
                             <h3>FAQs</h3>
                             <div class="list-group w-100">
+                                @foreach (var faq in Model.Faqs)
+                                {
                                 <div class="list-group-item list-group-item-action">
+                                   
+
+  
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Question 1</h5>
+                                        <h5 class="mb-1">@faq.Question</h5>
                                     </div>
                                     <p class="mb-1">
-                                        Short & concise version of the answer.
+                                        @faq.Answer
                                     </p>
 
                                 </div>
-                                <div class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Question 2</h5>
-                                    </div>
-                                    <p class="mb-1">
-                                        Short & concise version of the answer.
-                                    </p>
-
-                                </div>
-                                <div class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Question 3</h5>
-                                    </div>
-                                    <p class="mb-1">
-                                        Short & concise version of the answer.
-                                    </p>
-                                </div>
+        }
                             </div>
                         </div>
                         <div class="tab-pane my-4 mx-2 fade" id="content-3" role="tabpanel">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <div class="comment-box ml-2">
-                                            <h4>User Name, Add a comment!</h4>
-                                            <div class="rating">
-                                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-                                            </div>
-                                            <div class="comment-area">
-                                                <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea>
-                                            </div>
-                                            <div class="comment-btns mt-2">
-                                                <div class="row">
-                                                    <div class="col-6">
+                            <form>
+                                <div class="card">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <div class="comment-box ml-2">
+                                                <h4>User Name, Add a comment!</h4>
+                                                <div class="rating">
+                                                    <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                                    <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                                    <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                                    <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                                    <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                                </div>
+                                                <div class="comment-area">
+                                                    <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea>
+                                                </div>
+                                                <div class="comment-btns mt-2">
+                                                    <div class="row">
+                                                        <div class="col-6">
 
-                                                        <div class="pull-right">
+                                                            <div class="pull-right">
 
-                                                            <button class="btn btn-success send btn-md">Send <i class="fa fa-long-arrow-right ml-1"></i></button>
+                                                                <button class="btn btn-success send btn-md">Send <i class="fa fa-long-arrow-right ml-1"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -191,7 +182,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                             <section style="background-color: #f7f6f6;">
                                 <div class="container my-3 py-5 text-dark">
                                     <div class="row d-flex justify-content-center">
@@ -200,6 +191,8 @@
                                                 <h4 class="text-dark mb-0"> Reviews (2)</h4>
 
                                             </div>
+                                            @foreach (var review in Model.Reviews){
+                                                var user = Model.Users.FirstOrDefault(u => u.Id == review.UserId);
 
                                             <div class="card mb-3">
                                                 <div class="card-body">
@@ -208,8 +201,8 @@
                                                         <div class="w-100">
                                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                                 <h6 class="text-primary fw-bold mb-0">
-                                                                    #_User Name
-                                                                    <span class="text-dark ms-2">Amazing Course! </span>
+                                                                        @(user?.Username) 
+                                                                    <span class="text-dark ms-2"> @review.Comment </span>
                                                                 </h6>
                                                                 <div class="rating">
                                                                     <span class="empty-star">&#9733;</span>
@@ -223,28 +216,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card mb-3">
-                                                <div class="card-body">
-                                                    <div class="d-flex flex-start">
-
-                                                        <div class="w-100">
-                                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                                <h6 class="text-primary fw-bold mb-0">
-                                                                    #_User Name
-                                                                    <span class="text-dark ms-2">Amazing Course! </span>
-                                                                </h6>
-                                                                <div class="rating">
-                                                                    <span class="star">&#9733;</span>
-                                                                    <span class="star">&#9733;</span>
-                                                                    <span class="star">&#9733;</span>
-                                                                    <span class="star">&#9733;</span>
-                                                                    <span class="star">&#9733;</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>

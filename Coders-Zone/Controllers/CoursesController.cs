@@ -61,8 +61,11 @@ namespace Coders_Zone.Controllers
         public IActionResult CourseDetails(int id)
         {
             var course = _db.Courses
-                              .Include(c => c.Lessons)
-                              .FirstOrDefault(c => c.Id == id); if (course == null)
+              .Include(c => c.Lessons)
+              .Include(c => c.Faqs)
+              .Include(c => c.Reviews)
+              .FirstOrDefault(c => c.Id == id); 
+            if (course == null)
             {
                 return NotFound();
             }
@@ -78,7 +81,11 @@ namespace Coders_Zone.Controllers
                 IsPublic = course.IsPublic,
                 Duration = course.Duration,
                 CoverImage = course.CoverImage,
-                Lessons = course.Lessons.ToList() // Populate the Lessons property
+                Lessons = course.Lessons.ToList(),
+                Faqs = course.Faqs.ToList(),
+                Reviews = course.Reviews.ToList(),
+                Users = _db.Users.ToList() // Retrieve all users from the User table
+
 
             };
 
