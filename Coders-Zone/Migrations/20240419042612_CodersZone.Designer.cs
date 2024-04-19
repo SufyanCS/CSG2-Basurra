@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coders_Zone.Migrations
 {
     [DbContext(typeof(CoderZoneDbContext))]
-    [Migration("20240409011605_MigrationCodersZone")]
-    partial class MigrationCodersZone
+    [Migration("20240419042612_CodersZone")]
+    partial class CodersZone
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -118,6 +118,9 @@ namespace Coders_Zone.Migrations
                     b.Property<bool>("IsPreview")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("LessonId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -132,6 +135,8 @@ namespace Coders_Zone.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
+
+                    b.HasIndex("LessonId");
 
                     b.ToTable("Lessons");
                 });
@@ -264,6 +269,10 @@ namespace Coders_Zone.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Coders_Zone.Models.Lesson", null)
+                        .WithMany("Lessons")
+                        .HasForeignKey("LessonId");
+
                     b.Navigation("Course");
                 });
 
@@ -337,6 +346,8 @@ namespace Coders_Zone.Migrations
 
             modelBuilder.Entity("Coders_Zone.Models.Lesson", b =>
                 {
+                    b.Navigation("Lessons");
+
                     b.Navigation("UserLessons");
                 });
 
