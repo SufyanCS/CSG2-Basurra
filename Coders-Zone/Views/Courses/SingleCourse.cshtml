@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model CourseDetailsViewModel
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,49 +14,61 @@
             <div class="col-12 col-md-3">
                 <table class="table table-striped">
                     <tbody>
-                        <tr>
-                            <th scope="row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
-                                    <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                    <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                </svg>
-                                <a href="course/#LessonID" class="text-decoration-none">
-                                    <small style="vertical-align: middle;">1: Getting Started with Bootstrap</small>
-                                </a>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
-                                    <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                    <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                </svg>
-                                <a href="course/#LessonID" class="text-decoration-none">
-                                    <small style="vertical-align: middle;">2: Getting Started with Bootstrap</small>
-                                </a>
-                            </th>
-                        </tr>
+                        @foreach (var lesson in Model.Lessons)
+                        {
+                            <tr>
+                                <th scope="row" class="@((lesson.Id.ToString() == Model.SelectedLessonId) ? " bg-primary" : "")">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals text-warning" viewBox="0 0 16 16">
+                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                    </svg>
+                                    <a href="@Url.Action("SingleCourse", "Courses", new { lessonId = lesson.Id })" class="text-decoration-none text-black">
+                                        <small style="vertical-align: middle;">@lesson.Name</small>
+                                    </a>
+                                </th>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
             <div class="col-1 col-md-9">
-                <div>
-                    <h2>Lesson Title</h2>
-                </div>
                 <div class="m-3">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ex at nisl congue hendrerit. Sed nec tortor a nulla cursus tristique. In sit amet nisi vel ipsum malesuada lacinia. Suspendisse a sagittis dui, eget auctor velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce consectetur, sapien nec tempor fringilla, justo ligula vestibulum mi, eget consequat felis neque vel ex. Nulla facilisi. Cras id enim in est malesuada euismod vel nec urna. Nullam blandit risus lectus, sed ullamcorper nunc fermentum vel. Sed fringilla dui nec commodo consectetur. Mauris et metus justo. Fusce sollicitudin ipsum eu fringilla tincidunt. Donec non semper mauris, at accumsan tellus. Mauris dictum ac erat nec convallis.
-
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed efficitur sodales felis, id feugiat ante commodo ac. Donec interdum, odio nec congue placerat, lectus dui congue nisl, et semper urna eros et nisl. Fusce non feugiat elit. Suspendisse potenti. Vivamus vitae semper augue. Sed vitae justo sed est tempor lacinia. Aenean non condimentum velit. Nullam lorem enim, luctus et facilisis sed, aliquet sed sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean id leo sit amet purus finibus pellentesque. Praesent commodo, sem eget tristique malesuada, ipsum justo blandit odio, vel pellentesque risus tellus vitae est. Donec facilisis egestas augue, a porttitor lorem molestie eget. Nullam cursus elementum dui, vel scelerisque elit ullamcorper a. Sed dictum purus sed ex consectetur, in scelerisque lorem tristique. In hac habitasse platea dictumst.
-                    </p>
+                    @foreach (var lesson in Model.Lessons)
+                    {
+                        @if (lesson.Id.ToString() == Model.SelectedLessonId)
+                        {
+                            <h3>@lesson.Name</h3>
+                            <p>@lesson.Content</p>
+                            <p>
+                                Video URL: <a href="@lesson.VideoUrl" target="_blank">@lesson.VideoUrl</a>
+                            </p>
+                        }
+                    }
                 </div>
+
                 <div class="d-flex justify-content-between mt-3 m-2">
-                    <button class="btn btn-primary">Previous</button>
-                    <button class="btn btn-primary">Next</button>
+                    @if (Model.SelectedLessonId != null)
+                    {
+                        var currentIndex = Model.Lessons.FindIndex(l => l.Id.ToString() == Model.SelectedLessonId);
+                        var prevIndex = currentIndex - 1;
+                        var nextIndex = currentIndex + 1;
+
+                        <form asp-action="SingleCourse" asp-controller="Courses" method="get">
+                            @if (prevIndex >= 0)
+                            {
+                                <button type="submit" name="lessonId" value="@Model.Lessons[prevIndex].Id" class="btn btn-primary">Previous</button>
+                            }
+                            @if (nextIndex < Model.Lessons.Count)
+                            {
+                                <button type="submit" name="lessonId" value="@Model.Lessons[nextIndex].Id" class="btn btn-primary">Next</button>
+                            }
+                        </form>
+                    }
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>

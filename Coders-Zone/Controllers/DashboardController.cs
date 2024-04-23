@@ -61,8 +61,9 @@ namespace Coders_Zone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditCourse(Course course)
+        public IActionResult EditCourse(Course course, List<Faq> FAQs)
         {
+            course.Faqs = FAQs;
             _db.Courses.Update(course);
             _db.SaveChanges();
             return RedirectToAction("Index");
