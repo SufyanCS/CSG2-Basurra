@@ -1,4 +1,8 @@
-﻿@model Coders_Zone.Models.CourseDetailsViewModel
+﻿@model CourseDetailsViewModel
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,7 +63,9 @@
                             <div>
                                 <span class="text-success">Free</span>
                             </div>
-                            <a href="#" class="btn btn-warning rounded-pill mt-3">Start Now</a>
+                            @* <a href="#" class="btn btn-warning rounded-pill mt-3">Start Now</a> *@
+                            @* <a href="@Url.Action("SingleCourse", "Courses")" class="btn btn-primary">View Single Course</a> *@
+                            <a href="@Url.Action("SingleCourse", "Courses", new { id = Model.Id })" class="btn btn-link view-course text-decoration-none p-0 fw-bold">View more</a>
                         </div>
                     </div>
                 </div>

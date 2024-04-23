@@ -2,7 +2,7 @@
 using Coders_Zone.Data;
 using Coders_Zone.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNet.Identity.Owin;
+//using Microsoft.AspNet.Identity.Owin;
 
 namespace Coders_Zone.Controllers
 {

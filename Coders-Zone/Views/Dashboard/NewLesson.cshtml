@@ -18,7 +18,6 @@
             <div class="row">
                     <div class="form-floating mb-3">
                         <select asp-for="CourseId" class="form-select">
-                        <option value="" required>Select a course</option>
                             @foreach (var course in ViewBag.Courses)
                             {
                                 <option value="@course.Id">@course.Name</option>
