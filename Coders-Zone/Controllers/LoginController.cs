@@ -58,6 +58,14 @@ namespace Coders_Zone.Controllers
                 return View(login);
             }
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
 
         private int? GetUserId(string username, string password)
         {
