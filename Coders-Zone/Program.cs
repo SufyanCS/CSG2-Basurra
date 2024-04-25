@@ -9,6 +9,12 @@ builder.Services.AddDbContext<CoderZoneDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("CoderConnectionStrings"));
 });
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true; 
+});
+
 
 var app = builder.Build();
 
@@ -22,7 +28,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

@@ -4,6 +4,9 @@
     {
         public List<Course> Courses { get; set; }
         public List<string> Categories { get; set; }
+        public Int32 UserId { get; set; }
+        public List<User> Users { get; set; }
+
 
 
     }
