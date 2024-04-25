@@ -14,8 +14,8 @@
         public List<Lesson> Lessons { get; set; }
         public List<Faq> Faqs { get; set; }
         public List<Review> Reviews { get; set; }
-        public List<User> Users { get; set; } // Add this property for Users
-        public string SelectedLessonId { get; set; } // Add this property for the selected lesson ID
+        public List<User> Users { get; set; }
+        public string SelectedLessonId { get; set; }
 
 
 

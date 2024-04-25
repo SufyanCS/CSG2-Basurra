@@ -33,12 +33,13 @@
             </div>
             <div class="col-1 col-md-9">
                 <div class="m-3">
+                    <h3>- Course: @Model.Name</h3>
                     @foreach (var lesson in Model.Lessons)
                     {
                         @if (lesson.Id.ToString() == Model.SelectedLessonId)
                         {
-                            <h3>@lesson.Name</h3>
-                            <p>@lesson.Content</p>
+                            <h4>Lesson: @lesson.Name</h4>
+                            <p>Content: @lesson.Content</p>
                             <p>
                                 Video URL: <a href="@lesson.VideoUrl" target="_blank">@lesson.VideoUrl</a>
                             </p>

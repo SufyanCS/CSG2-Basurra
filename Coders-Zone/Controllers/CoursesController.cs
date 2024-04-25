@@ -7,10 +7,7 @@ namespace Coders_Zone.Controllers
 {
     public class CoursesController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
         public CoursesController(CoderZoneDbContext db)
 
         {
@@ -44,22 +41,30 @@ namespace Coders_Zone.Controllers
 
             return View(viewModel);
         }
-        public IActionResult SingleCourse(int id )
+        public IActionResult SingleCourse(int id, int? lessonId)
         {
-            var Course = _db.Courses
+            var course = _db.Courses
                 .Include(c => c.Lessons)// for Lodaing the realted Lessons 
                 .FirstOrDefault(c => c.Id == id);
-            if (Course == null)
+            if (course == null)
             {
                 return NotFound();
 
             }
-            var model = new Lesson
+            if (!lessonId.HasValue && course.Lessons.Any())
             {
-                Course = Course,
-                //Lessons = Course.Lessons
+                lessonId = course.Lessons.First().Id;
+            }
+            var viewModel = new CourseDetailsViewModel
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Category = course.Category,
+                Lessons = course.Lessons.ToList(),
+                SelectedLessonId = lessonId.HasValue ? lessonId.Value.ToString() : null
+
             };
-            return View(model);
+            return View(viewModel);
         }
         public IActionResult CourseDetails(int id)
         {
@@ -76,6 +81,7 @@ namespace Coders_Zone.Controllers
 
             var viewModel = new CourseDetailsViewModel
             {
+                Id = course.Id,
                 Name = course.Name,
                 Category = course.Category,
                 Overview = course.Overview,
