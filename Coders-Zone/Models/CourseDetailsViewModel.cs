@@ -16,6 +16,9 @@
         public List<Review> Reviews { get; set; }
         public List<User> Users { get; set; }
         public string SelectedLessonId { get; set; }
+        public Int32 UserId { get; set; }
+        public bool IsEnrolled { get; set; }
+
 
 
 

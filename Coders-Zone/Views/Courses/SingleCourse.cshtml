@@ -1,4 +1,17 @@
 ﻿@model CourseDetailsViewModel
+
+@if (Model.UserId != 0)
+{
+    <p></p> 
+}
+else
+{
+    <script>
+        window.location.href = '@Url.Action("Index", "login")';
+    </script>
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +25,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-3">
+                <h5>Course: @Model.Name</h5>
+
                 <table class="table table-striped">
                     <tbody>
                         @foreach (var lesson in Model.Lessons)
@@ -33,15 +48,14 @@
             </div>
             <div class="col-1 col-md-9">
                 <div class="m-3">
-                    <h3>- Course: @Model.Name</h3>
                     @foreach (var lesson in Model.Lessons)
                     {
                         @if (lesson.Id.ToString() == Model.SelectedLessonId)
                         {
-                            <h4>Lesson: @lesson.Name</h4>
-                            <p>Content: @lesson.Content</p>
+                            <h4>- Lesson: @lesson.Name</h4>
+                            <p>- Content: @lesson.Content</p>
                             <p>
-                                Video URL: <a href="@lesson.VideoUrl" target="_blank">@lesson.VideoUrl</a>
+                                - Video URL: <a href="@lesson.VideoUrl" target="_blank">@lesson.VideoUrl</a>
                             </p>
                         }
                     }

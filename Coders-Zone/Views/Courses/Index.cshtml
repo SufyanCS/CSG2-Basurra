@@ -2,6 +2,17 @@
     @model Coders_Zone.Models.CoursesViewModel
 
 }
+@{
+    var userName = "";
+    if (Model.UserId > 0 && Model.Users != null)
+    {
+        var user = Model.Users.FirstOrDefault(u => u.Id == Model.UserId);
+        if (user != null)
+        {
+            userName = user.Username;
+        }
+    }
+}
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,7 +58,16 @@
         <div class="">
             <div class="row my-4">
                 <div class="col-md-6">
-                    <h2 class="mx-3">All Courses</h2>
+                <h2 class="mx-3">
+                    @if (!string.IsNullOrEmpty(userName))
+                    {
+                        <text>Welcome @userName, Explore Our Courses</text>
+                    }
+                    else
+                    {
+                        <text>Welcome Guest, Explore Our Courses</text>
+                    }
+                </h2>
                 </div>
                 <div class="col-md-6 d-flex">
 

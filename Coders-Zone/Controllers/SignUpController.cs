@@ -18,6 +18,10 @@ namespace Coders_Zone.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetInt32("UserId").HasValue)
+            {
+                return RedirectToAction("Index", "Courses");
+            }
             return View();
         }
         [HttpPost]
@@ -60,7 +64,7 @@ namespace Coders_Zone.Controllers
                 {
                 _Db.Users.Add(signUp);
                 _Db.SaveChanges();
-                return RedirectToAction("index", "Courses");
+                return RedirectToAction("index", "login");
                  }
 
 

@@ -63,9 +63,14 @@
                             <div>
                                 <span class="text-success">Free</span>
                             </div>
-                            @* <a href="#" class="btn btn-warning rounded-pill mt-3">Start Now</a> *@
-                            @* <a href="@Url.Action("SingleCourse", "Courses")" class="btn btn-primary">View Single Course</a> *@
-                            <a href="@Url.Action("SingleCourse", "Courses", new { id = Model.Id })" class="btn btn-link view-course text-decoration-none p-0 fw-bold">View more</a>
+                            @if (Model.IsEnrolled)
+                            {
+                                <a href="@Url.Action("SingleCourse", "Courses", new { id = Model.Id })" class="btn btn-link view-course text-decoration-none p-0 fw-bold">Continue</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("SingleCourse", "Courses", new { id = Model.Id })" class="btn btn-link view-course text-decoration-none p-0 fw-bold">Enroll Now</a>
+                            }
                         </div>
                     </div>
                 </div>
