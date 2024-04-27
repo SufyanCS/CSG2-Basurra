@@ -62,7 +62,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.Faq", b =>
@@ -91,7 +91,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Faqs");
+                    b.ToTable("Faqs", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.Lesson", b =>
@@ -136,7 +136,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasIndex("LessonId");
 
-                    b.ToTable("Lessons");
+                    b.ToTable("Lessons", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.Review", b =>
@@ -169,7 +169,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.User", b =>
@@ -203,7 +203,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.UserCourse", b =>
@@ -224,7 +224,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("UserCourses");
+                    b.ToTable("UserCourses", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.UserLesson", b =>
@@ -245,7 +245,7 @@ namespace Coders_Zone.Migrations
 
                     b.HasIndex("LessonId");
 
-                    b.ToTable("UserLessons");
+                    b.ToTable("UserLessons", (string)null);
                 });
 
             modelBuilder.Entity("Coders_Zone.Models.Faq", b =>

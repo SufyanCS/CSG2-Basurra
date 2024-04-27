@@ -1,15 +1,19 @@
 ﻿using Coders_Zone.Data;
 using Coders_Zone.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Coders_Zone.Controllers
 {
     public class DashboardController : Controller
     {
-        public DashboardController(CoderZoneDbContext db)
+        public DashboardController(CoderZoneDbContext db, IHostingEnvironment host)
         {
             _db = db;
+            _host = host;
         }
+        private readonly IHostingEnvironment _host;
         private readonly CoderZoneDbContext _db;
         public IActionResult Index()
         {
@@ -57,6 +61,25 @@ namespace Coders_Zone.Controllers
             {
                 return RedirectToAction("Index", "Courses");
             }
+            string filename = string.Empty;
+            if (course.ClientImage != null)
+            {
+                var permittedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+                var extension = Path.GetExtension(course.ClientImage.FileName).ToLowerInvariant();
+                if (permittedExtensions.Contains(extension))
+                {
+                    string myUpload = Path.Combine(_host.WebRootPath, "ImagesCourses");
+                    filename = course.ClientImage.FileName;
+                    string fullPath = Path.Combine(myUpload, filename);
+                    course.ClientImage.CopyTo(new FileStream(fullPath, FileMode.Create));
+                    course.CoverImage = filename;
+                }
+                else
+                {
+                    ModelState.AddModelError("ClintImage", "Invalid file type. Only the following types are allowed: .jpg, .jpeg, .png, .gif, .bmp");
+                    return View(course);
+                }
+            }
 
             _db.Courses.Add(course);
             _db.SaveChanges();
@@ -95,14 +118,68 @@ namespace Coders_Zone.Controllers
         {
             var userId = HttpContext.Session.GetInt32("UserId");
             var user = _db.Users.FirstOrDefault(u => u.Id == userId);
+            var dbCourse = _db.Courses.FirstOrDefault(c => c.Id == course.Id);
 
-            if (userId == null || user == null || !user.IsAdmin)
+            if (dbCourse == null)
+            {
+                // لم يتم العثور على الكيان
+                return NotFound();
+            }
+
+            if (userId == null || user == null || !user.IsAdmin )
             {
                 return RedirectToAction("Index", "Courses");
             }
 
-            course.Faqs = FAQs;
-            _db.Courses.Update(course);
+            //  نقوم بتحديث الحقول الضرورية
+
+            dbCourse.Name = course.Name;
+            dbCourse.IsPublic = course.IsPublic;
+            dbCourse.Category = course.Category;
+            dbCourse.Duration = course.Duration;
+            dbCourse.NumLessons = course.NumLessons;
+
+            dbCourse.Overview = course.Overview;
+            if (FAQs != null && FAQs.Any())
+            {
+                dbCourse.Faqs = FAQs;
+            }
+            string filename = string.Empty;
+            if (course.ClientImage != null)
+            {
+                var permittedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+                var extension = Path.GetExtension(course.ClientImage.FileName).ToLowerInvariant();
+                if (permittedExtensions.Contains(extension))
+                {
+                    string myUpload = Path.Combine(_host.WebRootPath, "ImagesCourses");
+
+                    filename = course.ClientImage.FileName;
+                    string fullPath = Path.Combine(myUpload, filename);
+                   // course.ClientImage.CopyTo(new FileStream(fullPath, FileMode.Create));
+
+                    //Delete the old image
+                    string old = dbCourse.CoverImage;
+                    string fullOld = Path.Combine(myUpload, old);
+                    if (fullPath != fullOld)
+                    {
+                        System.IO.File.Delete(fullOld);
+                    }
+
+                    //Save the new image
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        course.ClientImage.CopyTo(stream);
+                    }
+                    dbCourse.CoverImage = filename;
+                }
+                else
+                {
+                    ModelState.AddModelError("ClintImage", "Invalid file type. Only the following types are allowed: .jpg, .jpeg, .png, .gif, .bmp");
+                    return View(course);
+                }
+            }
+            // course.Faqs = FAQs;
+            _db.Courses.Update(dbCourse);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

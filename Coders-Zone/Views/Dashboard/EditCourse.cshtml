@@ -8,7 +8,7 @@
     <div class="d-flex flex-row justify-content-between p-4">
         <h2>Edit Course</h2>
     </div>
-    <form class="my-4" method="post">
+    <form class="my-4" method="post" enctype="multipart/form-data">
 
         <div class="row">
             <div class="form-check form-switch mx-4">
@@ -40,7 +40,7 @@
             </select>
         </div>
         <div class="form-floating mb-3">
-            <input asp-for="CoverImage" type="text" class="form-control border border-1 border-dark my-2" required>
+            <input asp-for="ClientImage" type="file" class="form-control border border-1 border-dark my-2" required>
             <label> Cover Image</label>
         </div>
         <div class="form-floating border border-1 border-dark">
