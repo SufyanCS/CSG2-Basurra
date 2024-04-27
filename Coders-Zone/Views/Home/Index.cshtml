@@ -1,4 +1,4 @@
-@model User
+@model Coders_Zone.Models.CoursesViewModel
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,7 +44,6 @@
                 </div>
                 <div class="info ">
                     <h3> Art & Design </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -53,7 +52,6 @@
                 </div>
                 <div class="info ">
                     <h3> Development </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -62,7 +60,6 @@
                 </div>
                 <div class="info ">
                     <h3>Comunication</h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -71,7 +68,6 @@
                 </div>
                 <div class="info ">
                     <h3> Videography </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -80,7 +76,6 @@
                 </div>
                 <div class="info ">
                     <h3> Photography</h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -89,7 +84,6 @@
                 </div>
                 <div class="info ">
                     <h3> Marketing </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -98,7 +92,6 @@
                 </div>
                 <div class="info ">
                     <h3> Content writing </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -107,7 +100,6 @@
                 </div>
                 <div class="info ">
                     <h3> Finance </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -116,7 +108,6 @@
                 </div>
                 <div class="info ">
                     <h3> Science </h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
             <div class="card icons-color">
@@ -125,7 +116,6 @@
                 </div>
                 <div class="info ">
                     <h3> Network</h3>
-                    <p> 38 courses</p>
                 </div>
             </div>
 
@@ -142,17 +132,17 @@
 
         <br>
         <br>
-
-
         <div class="content">
+            @foreach (var course in Model.FeaturedCourses)
+            {
             <div class="courses-card">
                 <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-48-26.jpg" />  
+                    <img src="~/ImagesCourses/@course.CoverImage" />  
                 </div>
                 <div class="courses-info">
-                    <p class="courses-category"> Category  </p>
+                    <p class="courses-category"> @course.Category  </p>
                     <strong class="courses-title">
-                        <span> Create an LMC website with learn press Create an LMC website</span>
+                        <span>@course.Category</span>
                     </strong>
                     <div class="row">
                         <div class="col">
@@ -168,14 +158,14 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
                                         <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
                                     </svg>
-                                    <span>All Levels</span>
+                                    <span>@course.Level</span>
                                 </li>
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals icons-color" viewBox="0 0 16 16">
                                         <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
                                         <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
                                     </svg>
-                                    <span>111 Lessons</span>
+                                    <span>@course.NumLessons</span>
                                 </li>
                             </ul>
                         </div>
@@ -186,213 +176,7 @@
                     </div>
                 </div>
             </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-49-50.jpg" />
-                </div>
-                <div class="courses-info">
-                    <p class="courses-category">  Category  </p>
-                    <strong class="courses-title">
-                        <span> Create an LMC website with learn press</span>
-                    </strong>
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-unstyled d-flex justify-content-between pt-2 small">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-mortarboard-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
-                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
-                                    </svg>
-                                    <span>111 students</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
-                                    </svg>
-                                    <span>All Levels</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals icons-color" viewBox="0 0 16 16">
-                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                    </svg>
-                                    <span>111 Lessons</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr class="m-1" />
-                    <div class="more-details">
-                        <a href="#"> View More </a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-50-08.jpg" />
-                </div>
-                <div class="courses-info">
-                    <p class="courses-category"> Category  </p>
-                    <strong class="courses-title">
-                        <span> Create an LMC website with learn press</span>
-                    </strong>
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-unstyled d-flex justify-content-between pt-2 small">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-mortarboard-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
-                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
-                                    </svg>
-                                    <span>111 students</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
-                                    </svg>
-                                    <span>All Levels</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals icons-color" viewBox="0 0 16 16">
-                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                    </svg>
-                                    <span>111 Lessons</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr class="m-1" />
-                    <div class="more-details">
-                        <a href="#"> View More </a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-50-56.jpg" />
-                </div>
-                <div class="courses-info">
-                    <p class="courses-category">  Category  </p>
-                    <strong class="courses-title">
-                        <span> Create an LMC website with learn press</span>
-                    </strong>
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-unstyled d-flex justify-content-between pt-2 small">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-mortarboard-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
-                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
-                                    </svg>
-                                    <span>111 students</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
-                                    </svg>
-                                    <span>All Levels</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals icons-color" viewBox="0 0 16 16">
-                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                    </svg>
-                                    <span>111 Lessons</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr class="m-1" />
-                    <div class="more-details">
-                        <a href="#"> View More </a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-51-29.jpg" />
-                </div>
-                <div class="courses-info">
-                    <p class="courses-category">  Category  </p>
-                    <strong class="courses-title">
-                        <span> Create an LMC website with learn press</span>
-                    </strong>
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-unstyled d-flex justify-content-between pt-2 small">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-mortarboard-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
-                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
-                                    </svg>
-                                    <span>111 students</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
-                                    </svg>
-                                    <span>All Levels</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals  icons-color" viewBox="0 0 16 16">
-                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                    </svg>
-                                    <span>111 Lessons</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr class="m-1" />
-                    <div class="more-details">
-                        <a href="#"> View More </a>
-                    </div>
-                </div>
-            </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-51-41.jpg" />
-                </div>
-                <div class="courses-info">
-                    Category  </p>
-                    <strong class="courses-title">
-                        <span> Create an LMC website with learn press</span>
-                    </strong>
-                    <div class="row">
-                        <div class="col">
-                            <ul class="list-unstyled d-flex justify-content-between pt-2 small">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-mortarboard-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
-                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
-                                    </svg>
-                                    <span>111 students</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
-                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
-                                    </svg>
-                                    <span>All Levels</span>
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals  icons-color" viewBox="0 0 16 16">
-                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                                    </svg>
-                                    <span>111 Lessons</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr class="m-1" />
-                    <div class="more-details">
-                        <a href="#"> View More </a>
-                    </div>
-                </div>
-            </div>
-            
-
+            }
         </div>
     </section>
 <section class="picture1">
@@ -465,9 +249,6 @@
 
     </section>
 
-
-
-
     <section class="courses" id="coorses2">
         <a href="/courses" class="main-btn"> All Courses</a>
         <h2>Your Courses</h2>
@@ -478,47 +259,49 @@
 
 
         <div class="content">
+            @foreach (var course in Model.){
             <div class="courses-card">
                 <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-49-50.jpg" />
-             
+                    <img src="~/ImagesCourses/@course.CoverImage" />
                 </div>
                 <div class="courses-info">
-
+                    <p class="courses-category"> @course.Category  </p>
                     <strong class="courses-title">
-                        <span> Create an LMC website <br>with learn press</span>
-
+                        <span>@course.Category</span>
                     </strong>
-                    <p class="courses-category">  looking for an amazing & well function </p>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="list-unstyled d-flex justify-content-between pt-2 small">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-mortarboard-fill icons-color" viewBox="0 0 16 16">
+                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                                    </svg>
+                                    <span>111 students</span>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-bar-chart-fill icons-color" viewBox="0 0 16 16">
+                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z" />
+                                    </svg>
+                                    <span>@course.Level</span>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-journals icons-color" viewBox="0 0 16 16">
+                                        <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                        <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                    </svg>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="m-1" />
+                    <div class="more-details">
+                        <a href="#"> View More </a>
+                    </div>
                 </div>
             </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-51-41.jpg" />
- 
-                </div>
-                <div class="courses-info">
-
-                    <strong class="courses-title">
-                        <span> Create an LMC website <br>with learn press</span>
-                    </strong>
-                    <p class="courses-category"> looking for an amazing & well function  </p>
-                </div>
-            </div>
-            <div class="courses-card">
-                <div class="courses-image ">
-                    <img src="~/images/photo_2024-04-08_07-50-44.jpg" />
-            
-                </div>
-                <div class="courses-info">
-
-                    <strong class="courses-title">
-                        <span> Create an LMC website <br>with learn press</span>
-
-                    </strong>
-                    <p class="courses-category"> looking for an amazing & well function  </p>
-                </div>
-            </div>
+            }
         </div>
     </section>
 </body>
