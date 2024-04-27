@@ -40,8 +40,8 @@
             </select>
         </div>
         <div class="form-floating mb-3">
-            <input asp-for="CoverImage" type="text" class="form-control border border-1 border-dark my-2" required>
-            <label asp-for="CoverImage">Cover Image</label>
+            <input asp-for="ClientImage" type="file" class="form-control border border-1 border-dark my-2" accept=".jpg, .jpeg, .png, .gif, .bmp" required>
+            <label asp-for="ClientImage">Cover Image</label>
         </div>
         <div class="form-floating border border-1 border-dark">
             <textarea asp-for="Overview" class="form-control" placeholder="Course Overview" style="height: 100px" required></textarea>
@@ -89,7 +89,10 @@
         </div>
     </form>
 </div>
+
+
 <!-- Include this script at the bottom of your view -->
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('add-faq').addEventListener('click', function () {

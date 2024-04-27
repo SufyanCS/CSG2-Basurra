@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ViewEngines;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Coders_Zone.Models
 {
@@ -14,6 +15,8 @@ namespace Coders_Zone.Models
         public bool IsPublic { get; set; }
         public string Duration { get; set; }
         public string CoverImage { get; set; }
+        [NotMapped]
+        public IFormFile ClientImage { get; set; }
         public ICollection<UserCourse> UserCourses { get; set; } // Navigation property for UserCourses
         public ICollection<Lesson> Lessons { get; set; } // Navigation property for Lessons
         public ICollection<Faq> Faqs { get; set; } // Navigation property for Faqs
