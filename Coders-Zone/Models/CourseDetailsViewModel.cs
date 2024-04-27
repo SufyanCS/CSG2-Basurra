@@ -18,6 +18,8 @@
         public string SelectedLessonId { get; set; }
         public Int32 UserId { get; set; }
         public bool IsEnrolled { get; set; }
+        public int NumEnrolledUsers { get; set; }
+
 
 
 

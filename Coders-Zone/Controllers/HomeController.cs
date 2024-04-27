@@ -19,13 +19,10 @@ namespace Coders_Zone.Controllers
 
         public IActionResult Index()
         {
-            // Get the user ID from session
             var userId = HttpContext.Session.GetInt32("UserId");
 
-            // Featured courses (first 6 courses)
             var featuredCourses = _db.Courses.Take(6).ToList();
 
-            // If user is logged in, retrieve their enrolled courses
             var userCourses = new List<Course>();
             if (userId != null)
             {
@@ -36,11 +33,17 @@ namespace Coders_Zone.Controllers
                     .ToList();
             }
 
-            // Populate the view model
+            var numEnrolledUsers = _db.UserCourses
+     .GroupBy(uc => uc.CourseId)
+     .Select(g => new { CourseId = g.Key, Count = g.Count() })
+     .ToDictionary(x => x.CourseId, x => x.Count);
+
             var viewModel = new CoursesViewModel
             {
                 FeaturedCourses = featuredCourses,
                 UserCourses = userCourses,
+                NumEnrolledUsers = numEnrolledUsers
+
             };
 
             return View(viewModel);
