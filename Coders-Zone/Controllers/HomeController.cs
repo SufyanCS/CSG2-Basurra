@@ -19,6 +19,9 @@ namespace Coders_Zone.Controllers
 
         public IActionResult Index()
         {
+            var activeStudentsCount = _db.Users.Count(); // Assuming all users are students
+            var totalCoursesCount = _db.Courses.Count();
+            var totalLessonsCount = _db.Lessons.Count();
             var userId = HttpContext.Session.GetInt32("UserId");
 
             var featuredCourses = _db.Courses.Take(6).ToList();
@@ -42,7 +45,10 @@ namespace Coders_Zone.Controllers
             {
                 FeaturedCourses = featuredCourses,
                 UserCourses = userCourses,
-                NumEnrolledUsers = numEnrolledUsers
+                NumEnrolledUsers = numEnrolledUsers,
+                ActiveStudentsCount = activeStudentsCount,
+                TotalCoursesCount = totalCoursesCount,
+                TotalLessonsCount = totalLessonsCount
 
             };
 

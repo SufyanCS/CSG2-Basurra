@@ -28,11 +28,13 @@ namespace Coders_Zone.Controllers
             var usersList = _db.Users.ToList();
             var coursesList = _db.Courses.ToList();
             var lessonsList = _db.Lessons.ToList();
+            var enrolledList = _db.UserCourses.ToList();
             var viewModel = new DashboardViewModel
             {
                 Users = usersList,
                 Courses = coursesList,
                 Lessons = lessonsList,
+                Enrolled = enrolledList,
                 UserId = userId.Value
             };
 

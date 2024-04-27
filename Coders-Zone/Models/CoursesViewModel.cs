@@ -9,8 +9,9 @@
         public List<Course> FeaturedCourses { get; set; }
         public List<Course> UserCourses { get; set; }
         public Dictionary<int, int> NumEnrolledUsers { get; set; }
-
-
+        public int ActiveStudentsCount { get; set; }
+        public int TotalCoursesCount { get; set; }
+        public int TotalLessonsCount { get; set; }
 
 
 

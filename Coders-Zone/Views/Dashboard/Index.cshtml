@@ -3,6 +3,8 @@
     var courseCount = Model.Courses.Count;
     var userCount = Model.Users.Count;
     var lessonCount = Model.Lessons.Count;
+        var EnrolledCount = Model.Enrolled.Count;
+
 
 
 }
@@ -11,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
@@ -92,8 +94,8 @@
                         <div class="col-md-6 ">
                             <div class="card h-100 bg-primary-subtle">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-sm-center" style=" height: 250px;">
-                                    <h2 class="card-title">Total</h2>
-                                    <h4 class="card-text fw-bold"></h4>
+                                    <h2 class="card-title">Enrolled to courses</h2>
+                                    <h4 class="card-text fw-bold">@EnrolledCount Enrollment</h4>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +103,7 @@
                             <div class="card h-100 bg-warning p-2 text-dark bg-opacity-25">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-sm-center" style=" height: 250px;">
                                     <h2 class="card-title">Total Students</h2>
-                                    <h4 class="card-text fw-bold">@userCount Active Student</h4>
+                                    <h4 class="card-text fw-bold">@userCount Users</h4>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +171,6 @@
                         <th scope="col">Email</th>
                         <th scope="col">Is Admin</th>
                         <th scope="col">Regestration Date</th>
-                        <th scope="col">Courses Enrolled</th>
                         <th>Banned</th>
                        </tr>
                    </thead>
@@ -182,15 +183,6 @@
                                 <td>@user.Email</td>
                                 <td>@user.IsAdmin</td>
                                 <td>@user.RegistrationDate</td>
-                                <td>
-                                    @*Still Need to implement the functionality after devoloping the Enroll Button in Course Details page...*@
-
-                                    <select class="form-select">
-                                        <option>Num Of Courses = 2</option>
-                                        <option>Java 101</option>
-                                        <option>Mastering Python </option>
-                                    </select>
-                                </td>
                                 <td>
                                     @if (user.IsBanned)
                                     {
