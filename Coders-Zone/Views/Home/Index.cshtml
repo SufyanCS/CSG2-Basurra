@@ -175,8 +175,8 @@
                     </div>
                     <hr class="m-1" />
                     <div class="more-details">
-                        <a href="#" > View More </a>
-                    </div>
+                            <a href="@Url.Action("CourseDetails", "Courses", new { id = course.Id })" class="btn btn-link view-course text-decoration-none p-0 fw-bold">View more</a>
+                        </div>
                 </div>
             </div>
             }
@@ -303,7 +303,8 @@
                     </div>
                     <hr class="m-1" />
                     <div class="more-details">
-                        <a href="#"> View More </a>
+                            <a href="@Url.Action("CourseDetails", "Courses", new { id = course.Id })" class="btn btn-link view-course text-decoration-none p-0 fw-bold">View more</a>
+
                     </div>
                 </div>
             </div>
