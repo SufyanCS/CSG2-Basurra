@@ -8,6 +8,9 @@
         public List<User> Users { get; set; }
         public List<Course> FeaturedCourses { get; set; }
         public List<Course> UserCourses { get; set; }
+        public Dictionary<int, int> NumEnrolledUsers { get; set; }
+
+
 
 
 
