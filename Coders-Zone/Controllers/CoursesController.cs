@@ -36,13 +36,20 @@ namespace Coders_Zone.Controllers
             var categories = _db.Courses.Select(c => c.Category).Distinct().ToList();
 
             var userId = HttpContext.Session.GetInt32("UserId");
-
+            var numEnrolledUsers = new Dictionary<int, int>();
+            foreach (var course in coursesList)
+            {
+                var numUsers = _db.UserCourses.Count(uc => uc.CourseId == course.Id);
+                numEnrolledUsers[course.Id] = numUsers;
+            }
             var viewModel = new CoursesViewModel
             {
                 Courses = coursesList,
                 Categories = categories,
                 UserId = userId.HasValue ? userId.Value : 0,
-                Users = usersList
+                Users = usersList,
+                NumEnrolledUsers = numEnrolledUsers
+
 
 
 
@@ -76,10 +83,8 @@ namespace Coders_Zone.Controllers
                 SelectedLessonId = lessonId.HasValue ? lessonId.Value.ToString() : null,
             };
 
-            // Save data in the UserCourse table
             if (userId.HasValue)
             {
-                // Check if the user is already enrolled in the course
                 var isEnrolled = _db.UserCourses
                     .Any(uc => uc.UserId == userId.Value && uc.CourseId == course.Id);
 
@@ -113,6 +118,8 @@ namespace Coders_Zone.Controllers
                 return NotFound();
             }
             var isEnrolled = false; // Initialize isEnrolled variable
+            var numEnrolledUsers = _db.UserCourses.Count(uc => uc.CourseId == id);
+
 
             if (userId.HasValue)
             {
@@ -136,7 +143,9 @@ namespace Coders_Zone.Controllers
                 Faqs = course.Faqs.ToList(),
                 Reviews = course.Reviews.ToList(),
                 Users = _db.Users.ToList(),
-                IsEnrolled = isEnrolled // Set the IsEnrolled property
+                IsEnrolled = isEnrolled,
+                NumEnrolledUsers = numEnrolledUsers 
+
 
 
 
