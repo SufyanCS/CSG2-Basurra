@@ -72,7 +72,7 @@
     <header>
         <a href="#" class="logo"><em>Coders Zone</em></a>
         <div class="navbar" style="display:inline-block;">
-            <a class="active"><em>Home</em></a>
+            <a class="active" href="/"><em>Home</em></a>
             <a class="active" asp-controller="Courses" asp-action="index"><em>Courses</em></a>
             @if (ViewContext.HttpContext.Session.GetInt32("UserId").HasValue)
             {
